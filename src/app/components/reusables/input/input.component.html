@@ -1,0 +1,22 @@
+<div class="box-form-group">
+  <label for="{{ label }}" *ngIf="label">{{ label }}</label>
+  <div class="box-input-password">
+    <input
+      type="text"
+      class="input-form"
+      [placeholder]="placeholder || ''"
+      [title]="label || 'Campo para digitar'"
+      [id]="label || 'random'"
+      [type]="newType"
+      required
+    />
+    <button
+      type="button"
+      class="btn-toggle-type-password"
+      *ngIf="isPassword"
+      (click)="togglePasswordType()"
+    >
+      <app-eye />
+    </button>
+  </div>
+</div>

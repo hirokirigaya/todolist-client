@@ -1,0 +1,33 @@
+.box-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.box-form-group label {
+  font-size: var(--font-md);
+  color: var(--text-primary);
+}
+
+.box-input-password {
+  display: flex;
+  position: relative;
+  width: 100%;
+  align-items: center;
+}
+
+.box-input-password input {
+  display: flex;
+  position: relative;
+  width: 100%;
+  font-size: var(--font-md);
+  color: var(--text-primary);
+}
+
+.btn-toggle-type-password {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  right: 20px;
+  cursor: pointer;
+}

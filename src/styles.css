@@ -1,25 +1,72 @@
 :root {
   --white: #fff;
-  --primary: #FFA34E;
-  --secondary: #ECECEC;
-  --tertiary: #BEBEBE;
+  --primary: #ffa34e;
+  --secondary: #ececec;
+  --tertiary: #bebebe;
   --bg-primary: #fff;
   --bg-secondary: #252525;
+  --bg-tertiary: #252525;
   --text-primary: #252525;
- }
- 
- [data-theme="dark"] {
-  --white: #fff;
-  --primary: #FFA34E;
-  --secondary: #3C3C3C;
-  --tertiary: #BEBEBE;
-  --bg-primary: #1C1C1C;
-  --bg-secondary: #252525;
-  --text-primary: #fff;
- }
+  --dark-gray-500: #1c1c1c;
+  --shadow-primary: 0 0 8px 12px rgba(0, 0, 0, 0.2);
 
- * {
+  --font-xs: 0.75rem; /* 12px  */
+  --font-sm: 0.875rem; /* 14px  */
+  --font-md: 1rem; /* 16px  */
+  --font-lg: 1.125rem; /* 18px  */
+  --font-xl: 1.25rem; /* 20px  */
+  --font-2xl: 1.5rem; /* 24px  */
+  --font-3xl: 1.875rem; /* 30px  */
+  --font-4xl: 2.25rem; /* 36px  */
+  --font-5xl: 3rem; /* 48px  */
+  --font-6xl: 4rem; /* 64px  */
+}
+
+[data-theme="dark"] {
+  --white: #fff;
+  --primary: #ffa34e;
+  --secondary: #3c3c3c;
+  --tertiary: #bebebe;
+  --bg-primary: #1c1c1c;
+  --bg-secondary: #252525;
+  --bg-tertiary: #fff;
+  --text-primary: #fff;
+  --dark-gray-500: #1c1c1c;
+}
+
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+
+html, body, input, textarea {
+  font-family: 'Poppins', sans-serif;
+}
+
+a, button {
+  transition: all 0.3s ease-in-out;
+}
+
+.input-form {
+  background-color: var(--secondary);
+  border: none;
+  border-radius: 10px;
+  padding: 1.25rem 1rem;
+  font-size: var(--font-md);
+}
+
+.input-form::placeholder {
+  color: var(--tertiary);
+  font-size: var(--font-md);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+ a:hover {
+  filter: brightness(1.2);
 }

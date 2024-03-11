@@ -7,10 +7,11 @@ import { constants } from 'src/interfaces/contants';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  defaultTheme = window.matchMedia('(prefers-colors-scheme: dark)').matches;
+  private defaultTheme = window.matchMedia('(prefers-colors-scheme: dark)').matches;
+  private routerOutlet = document.getElementById('router-outlet');
   theme = localStorage.getItem(constants.THEME_KEY);
 
-  ngOnInit(): void {
+   ngOnInit(): void {
     if (!this.theme) {
       localStorage.setItem(
         constants.THEME_KEY,
@@ -26,5 +27,8 @@ export class AppComponent implements OnInit {
       this.theme === 'dark' ? 'light' : 'dark'
     );
     this.theme = localStorage.getItem(constants.THEME_KEY);
+    if (this.routerOutlet?.attributes['data-theme' as any]) {
+      this.routerOutlet.setAttribute('data-theme', (this.theme || 'light') as any)
+    }
   }
 }

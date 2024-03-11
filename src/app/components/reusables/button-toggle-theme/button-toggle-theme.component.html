@@ -1,0 +1,8 @@
+<button (click)="toggleTheme()" class="button-toggle-theme">
+  <img
+    [src]="
+      theme === 'dark' ? '/assets/svgs/sun.svg' : '/assets/svgs/moon.svg'
+    "
+    alt="sun_or_moon"
+  />
+</button>

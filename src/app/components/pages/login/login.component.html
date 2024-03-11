@@ -1,0 +1,36 @@
+<main class="container">
+  <section class="container-desc">
+    <div class="box-title-subtitle">
+      <h2>TAREFAS</h2>
+      <h6>TO-DO</h6>
+    </div>
+    <p class="desc">
+      Já iniciou diversas tarefas, mas acabou se esquecendo de alguma? O
+      <span>TO-DO</span> é a solução ideal para a gestão de tarefas de maneira
+      simplificada e prática. Começe agora,
+      <a routerLink="/register">clique aqui para se registrar. </a>
+    </p>
+  </section>
+  <section class="container-form">
+    <div class="box-form">
+      <app-button-toggle-theme class="btn-theme" />
+      <h1 class="title">TO-DO</h1>
+      <form action="">
+        <div class="box-inputs-actions">
+          <app-input placeholder="Digite aqui" label="E-mail" type="email" />
+          <app-input
+            placeholder="Digite aqui"
+            [isPassword]="true"
+            label="Senha"
+            type="password"
+          />
+
+          <div class="actions">
+            <a routerLink="/register">Registrar-se</a>
+          </div>
+        </div>
+        <app-button type="submit" title="Entrar" text="Entrar" />
+      </form>
+    </div>
+  </section>
+</main>
