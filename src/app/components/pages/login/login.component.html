@@ -15,21 +15,38 @@
     <div class="box-form">
       <app-button-toggle-theme class="btn-theme" />
       <h1 class="title">TO-DO</h1>
-      <form action="">
+      <form
+        (ngSubmit)="submit()"
+        [formGroup]="loginFormGroup"
+        #formDir="ngForm"
+      >
         <div class="box-inputs-actions">
-          <app-input placeholder="Digite aqui" label="E-mail" type="email" />
+          <app-input
+            placeholder="Digite aqui"
+            label="E-mail"
+            type="email"
+            [control]="loginFormGroup.controls.email"
+            [submitted]="formDir.submitted"
+          />
           <app-input
             placeholder="Digite aqui"
             [isPassword]="true"
             label="Senha"
             type="password"
+            [control]="loginFormGroup.controls.password"
+            [submitted]="formDir.submitted"
           />
 
           <div class="actions">
             <a routerLink="/register">Registrar-se</a>
           </div>
         </div>
-        <app-button type="submit" title="Entrar" text="Entrar" />
+        <div class="box-button">
+          <app-button type="submit" title="Entrar" text="Entrar" />
+          <div *ngIf="error.error">
+            <p class="error-message">{{ error.message }}</p>
+          </div>
+        </div>
       </form>
     </div>
   </section>

@@ -9,6 +9,10 @@ import { ButtonComponent } from './components/reusables/button/button.component'
 import { InputComponent } from './components/reusables/input/input.component';
 import { EyeComponent } from './components/svgs/eye/eye.component';
 import { EyeOffComponent } from './components/svgs/eye-off/eye-off.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { HomeComponent } from './components/pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +23,22 @@ import { EyeOffComponent } from './components/svgs/eye-off/eye-off.component';
     InputComponent,
     EyeComponent,
     EyeOffComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

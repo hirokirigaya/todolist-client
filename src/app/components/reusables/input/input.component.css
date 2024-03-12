@@ -31,3 +31,8 @@
   right: 20px;
   cursor: pointer;
 }
+
+.error-message {
+  color: var(--error);
+  font-size: var(--font-sm);
+}

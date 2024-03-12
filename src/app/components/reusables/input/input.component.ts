@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -18,8 +18,16 @@ export class InputComponent implements OnInit {
   @Input() placeholder: string | null = null;
   @Input() isPassword: boolean = false;
   @Input() type: string = 'text';
+  @Input() control: FormControl = new FormControl();
+  @Input() required: 'true' | 'false' = 'false';
+  @Input() submitted: boolean = false;
 
   newType: string = 'text';
+
+  errorMessages: Record<string, string> = {
+    required: 'Campo obrigatório.',
+    email: 'E-mail inválido.'
+  }
   
   ngOnInit(): void {
     this.newType = this.isPassword ? 'password' : this.type;

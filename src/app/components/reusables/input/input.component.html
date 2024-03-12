@@ -8,7 +8,8 @@
       [title]="label || 'Campo para digitar'"
       [id]="label || 'random'"
       [type]="newType"
-      required
+      [required]="required"
+      [formControl]="control"
     />
     <button
       type="button"
@@ -19,4 +20,11 @@
       <app-eye />
     </button>
   </div>
+  <ng-container *ngIf="control.invalid && submitted">
+    <div *ngFor="let err of control.errors | keyvalue">
+      <p class="error-message">
+        {{ errorMessages[err.key] }}
+      </p>
+    </div>
+  </ng-container>
 </div>

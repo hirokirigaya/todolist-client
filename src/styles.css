@@ -8,6 +8,7 @@
   --bg-tertiary: #252525;
   --text-primary: #252525;
   --dark-gray-500: #1c1c1c;
+  --error: #ca0000;
   --shadow-primary: 0 0 8px 12px rgba(0, 0, 0, 0.2);
 
   --font-xs: 0.75rem; /* 12px  */

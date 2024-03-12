@@ -9,7 +9,7 @@
   width: 100%;
   max-width: 790px;
   padding: 260px 40px 0 40px;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 2.25rem;
   position: relative;
@@ -65,7 +65,7 @@
 }
 .container-form {
   background-color: var(--primary);
-  padding-left: 50px;
+  padding-left: 0;
   width: 100%;
   box-shadow: var(--shadow-primary);
 }
@@ -147,5 +147,27 @@
   cursor: pointer;
 }
 
+
+.box-button {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 5px;
+}
+
+.error-message {
+  color: var(--error);
+  font-size: var(--font-sm);
+}
+
+@media (min-width: 1280px) {
+  .container-desc {
+    display: flex;
+  }
+
+  .container-form {
+    padding-left: 50px;
+  }
+}
 
 
