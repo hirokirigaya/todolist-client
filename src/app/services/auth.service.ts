@@ -5,6 +5,8 @@ import { UserType } from 'src/interfaces/UserType';
 import { HttpClient } from '@angular/common/http';
 import { constants } from 'src/interfaces/contants';
 import { environment } from 'src/environments/environment';
+import * as moment from 'moment';
+import { ResponseType } from 'src/interfaces/api/ResponseType';
 
 @Injectable({
   providedIn: 'root',
@@ -26,15 +28,38 @@ export class AuthService {
     return this.http
       .post(`${environment.apiUrl}/auth/login`, { email, password })
       .pipe(
-        map((data) => {
-          console.log(data);
-          const userToken: UserType = data as UserType;
+        map((data: any) => {
+          const userToken: UserType = data?.data as UserType;
+          const expiresAt = moment().add(userToken.expires_in, 'milliseconds');
+          localStorage.setItem(
+            constants.EXPIRES_AT,
+            JSON.stringify(expiresAt.valueOf())
+          );
           localStorage.setItem(constants.USER_KEY, JSON.stringify(userToken));
           this.userSubject.next(userToken);
 
           return userToken;
         })
       );
+  }
+
+  register({
+    username,
+    email,
+    password,
+    confirm_password,
+  }: {
+    username: string;
+    email: string;
+    password: string;
+    confirm_password: string;
+  }) {
+    return this.http.post(`${environment.apiUrl}/auth/register`, {
+      username,
+      email,
+      password,
+      confirm_password,
+    });
   }
 
   logout() {
@@ -45,5 +70,19 @@ export class AuthService {
 
   public get userValue(): UserType | null {
     return this.userSubject.value;
+  }
+
+  public isLoggedIn(): boolean {
+    return moment().isBefore(this.getExpiration());
+  }
+
+  public isLoggedOut(): boolean {
+    return !this.isLoggedIn();
+  }
+
+  getExpiration() {
+    const expiration = localStorage.getItem(constants.EXPIRES_AT);
+    const expiresAt = expiration ? JSON.parse(expiration) : null;
+    return moment(expiresAt);
   }
 }

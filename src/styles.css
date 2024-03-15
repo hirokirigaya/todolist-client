@@ -41,12 +41,15 @@
   box-sizing: border-box;
 }
 
-
-html, body, input, textarea {
-  font-family: 'Poppins', sans-serif;
+html,
+body,
+input,
+textarea {
+  font-family: "Poppins", sans-serif;
 }
 
-a, button {
+a,
+button {
   transition: all 0.3s ease-in-out;
 }
 
@@ -68,6 +71,6 @@ a {
   text-decoration: none;
 }
 
- a:hover {
+a:hover {
   filter: brightness(1.2);
 }

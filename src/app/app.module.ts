@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { HomeComponent } from './components/pages/home/home.component';
+import { RegisterComponent } from './components/pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HomeComponent } from './components/pages/home/home.component';
     EyeComponent,
     EyeOffComponent,
     HomeComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

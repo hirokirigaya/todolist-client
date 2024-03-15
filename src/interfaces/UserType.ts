@@ -5,4 +5,5 @@ export interface UserType {
     avatar: string | null;
   };
   token: string;
+  expires_in: number;
 }

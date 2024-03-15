@@ -1,0 +1,63 @@
+<main class="container">
+  <section class="container-desc">
+    <div class="box-title-subtitle">
+      <h2>TAREFAS</h2>
+      <h6>TO-DO</h6>
+    </div>
+    <p class="desc">
+      Já iniciou diversas tarefas, mas acabou se esquecendo de alguma? O
+      <span>TO-DO</span> é a solução ideal para a gestão de tarefas de maneira
+      simplificada e prática. Começe agora,
+      <a routerLink="/login">clique aqui para entrar. </a>
+    </p>
+  </section>
+  <section class="container-form">
+    <div class="box-form">
+      <app-button-toggle-theme class="btn-theme" />
+      <h1 class="title">TO-DO</h1>
+      <form
+        (ngSubmit)="submit()"
+        [formGroup]="registerFormGroup"
+        #formDir="ngForm"
+      >
+        <div class="box-inputs-actions">
+          <app-input
+            placeholder="Digite aqui"
+            label="Nome"
+            [control]="registerFormGroup.controls.username"
+            [submitted]="formDir.submitted"
+          />
+          <app-input
+            placeholder="Digite aqui"
+            label="E-mail"
+            type="email"
+            [control]="registerFormGroup.controls.email"
+            [submitted]="formDir.submitted"
+          />
+          <app-input
+            placeholder="Digite aqui"
+            [isPassword]="true"
+            label="Senha"
+            type="password"
+            [control]="registerFormGroup.controls.password"
+            [submitted]="formDir.submitted"
+          />
+          <app-input
+            placeholder="Digite aqui"
+            [isPassword]="true"
+            label="Confirmar senha"
+            type="password"
+            [control]="registerFormGroup.controls.confirm_password"
+            [submitted]="formDir.submitted"
+          />
+        </div>
+        <div class="box-button">
+          <app-button type="submit" title="Entrar" text="Registrar" />
+          <div *ngIf="error.error">
+            <p class="error-message">{{ error.message }}</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

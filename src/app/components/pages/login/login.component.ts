@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { first } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -9,8 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  constructor(private authService: AuthService) {}
-
+  constructor(private authService: AuthService, private router: Router) {}
 
   loading: boolean = false;
   error: {
@@ -28,7 +28,6 @@ export class LoginComponent {
 
   submit() {
     if (this.loginFormGroup.invalid) return;
-    console.log(this.loginFormGroup.value);
     this.loading = true;
     if (this.loginFormGroup.value.email && this.loginFormGroup.value.password) {
       this.authService
@@ -43,7 +42,7 @@ export class LoginComponent {
               error: false,
               message: '',
             };
-            window.location.href = '/'
+            this.router.navigate(['/']);
           },
           error: (err) =>
             (this.error = {
