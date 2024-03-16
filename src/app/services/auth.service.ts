@@ -6,7 +6,6 @@ import { HttpClient } from '@angular/common/http';
 import { constants } from 'src/interfaces/contants';
 import { environment } from 'src/environments/environment';
 import * as moment from 'moment';
-import { ResponseType } from 'src/interfaces/api/ResponseType';
 
 @Injectable({
   providedIn: 'root',

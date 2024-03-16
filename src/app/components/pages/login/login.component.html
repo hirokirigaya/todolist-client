@@ -42,10 +42,7 @@
           </div>
         </div>
         <div class="box-button">
-          <app-button type="submit" title="Entrar" text="Entrar" />
-          <div *ngIf="error.error">
-            <p class="error-message">{{ error.message }}</p>
-          </div>
+          <app-button type="submit" title="Entrar" text="Entrar" [disabled]="loading" />
         </div>
       </form>
     </div>

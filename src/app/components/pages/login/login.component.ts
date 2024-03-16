@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { first } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -10,16 +11,13 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   loading: boolean = false;
-  error: {
-    error: boolean;
-    message: string;
-  } = {
-    error: false,
-    message: '',
-  };
 
   loginFormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -38,18 +36,16 @@ export class LoginComponent {
         .pipe(first())
         .subscribe({
           next: (data) => {
-            this.error = {
-              error: false,
-              message: '',
-            };
+            this.loading = false;
             this.router.navigate(['/']);
           },
-          error: (err) =>
-            (this.error = {
-              error: true,
-              message: err?.error?.message ?? 'E-mail é/ou senha incorreto(s).',
-            }),
-          complete: () => (this.loading = false),
+          error: (err) => {
+            this.loading = false;
+            this.toastr.error(
+              err?.error?.message ?? 'E-mail é/ou senha incorreto(s).',
+              'Error'
+            );
+          },
         });
     }
   }

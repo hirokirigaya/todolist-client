@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -9,16 +10,13 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   loading: boolean = false;
-  error: {
-    error: boolean;
-    message: string;
-  } = {
-    error: false,
-    message: '',
-  };
 
   registerFormGroup = new FormGroup({
     username: new FormControl('', [Validators.required]),
@@ -46,19 +44,17 @@ export class RegisterComponent {
         })
         .subscribe({
           next: (data) => {
-            this.error = {
-              error: false,
-              message: '',
-            };
-            // this.router.navigate(['/']);
-            console.log(data)
+            this.loading = false;
+            this.toastr.success('Conta criada com sucesso!', 'Sucesso');
+            this.router.navigate(['/login']);
           },
-          error: (err) =>
-            (this.error = {
-              error: true,
-              message: err?.error?.message ?? 'Não foi possível criar conta.',
-            }),
-          complete: () => (this.loading = false),
+          error: (err) => {
+            this.loading = false;
+            this.toastr.error(
+              err?.error?.message ?? 'Não foi possível criar conta.',
+              'Error'
+            );
+          },
         });
     }
   }

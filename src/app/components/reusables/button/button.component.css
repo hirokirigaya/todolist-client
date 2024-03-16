@@ -13,3 +13,7 @@
 .primary-button:hover {
   filter: brightness(1.1);
 }
+
+.primary-button:disabled {
+  filter: opacity(0.7);
+}
