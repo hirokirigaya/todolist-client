@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EyeOffComponent } from './eye-off.component';
+import { ContainerComponent } from './container.component';
 
-describe('EyeOffComponent', () => {
-  let component: EyeOffComponent;
-  let fixture: ComponentFixture<EyeOffComponent>;
+describe('ContainerComponent', () => {
+  let component: ContainerComponent;
+  let fixture: ComponentFixture<ContainerComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [EyeOffComponent]
+      declarations: [ContainerComponent]
     });
-    fixture = TestBed.createComponent(EyeOffComponent);
+    fixture = TestBed.createComponent(ContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

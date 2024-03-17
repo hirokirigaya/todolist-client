@@ -17,7 +17,8 @@
       *ngIf="isPassword"
       (click)="togglePasswordType()"
     >
-      <app-eye />
+      <app-eye-icon *ngIf="newType === 'password'" />
+      <app-eye-off-icon *ngIf="newType === 'text'" />
     </button>
   </div>
   <ng-container *ngIf="control.invalid && submitted">

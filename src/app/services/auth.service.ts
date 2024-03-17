@@ -63,6 +63,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem(constants.USER_KEY);
+    localStorage.removeItem(constants.EXPIRES_AT);
     this.userSubject.next(null);
     this.router.navigate(['/login']);
   }
@@ -72,6 +73,7 @@ export class AuthService {
   }
 
   public isLoggedIn(): boolean {
+    if (this.getExpiration() === null) return false;
     return moment().isBefore(this.getExpiration());
   }
 
@@ -82,6 +84,7 @@ export class AuthService {
   getExpiration() {
     const expiration = localStorage.getItem(constants.EXPIRES_AT);
     const expiresAt = expiration ? JSON.parse(expiration) : null;
+    if (!expiresAt) return null;
     return moment(expiresAt);
   }
 }

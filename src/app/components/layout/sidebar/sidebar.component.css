@@ -1,0 +1,86 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  height: 100%;
+  align-items: flex-start;
+  background-color: var(--dark-gray-500);
+  box-shadow: var(--shadow-primary);
+  padding: 30px 25px;
+  transition: all 0.3s ease-in-out;
+}
+
+.collapsed {
+  width: 90px;
+}
+
+.box-buttons {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+
+.btn-aside {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  min-width: 40px;
+  width: min-content;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  gap: 15px;
+}
+
+.logout-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-aside-collapsed {
+  width: 40px;
+  gap: 0;
+}
+
+.btn-menu {
+  width: 40px;
+  height: 40px;
+}
+
+.btn-plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--primary);
+}
+
+.btn-plus:hover {
+  filter: brightness(1.1);
+}
+
+.label-button {
+  font-size: var(--font-xl);
+  color: var(--white);
+  width: auto;
+  text-wrap: nowrap;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.label-button-collpsed {
+  opacity: 0;
+  width: 0;
+  display: none;
+}

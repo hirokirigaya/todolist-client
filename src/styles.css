@@ -8,6 +8,8 @@
   --bg-primary: #fff;
   --bg-secondary: #252525;
   --bg-tertiary: #252525;
+  --bg-quaternary: #ffa34e;
+  --bg-quinary: #3c3c3c;
   --text-primary: #252525;
   --dark-gray-500: #1c1c1c;
   --error: #ca0000;
@@ -33,6 +35,8 @@
   --bg-primary: #1c1c1c;
   --bg-secondary: #252525;
   --bg-tertiary: #fff;
+  --bg-quaternary: #252525;
+  --bg-quinary: #3c3c3c;
   --text-primary: #fff;
   --dark-gray-500: #1c1c1c;
 }

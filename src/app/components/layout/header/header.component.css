@@ -1,0 +1,35 @@
+header {
+  width: 100%;
+  background-color: var(--bg-quaternary);
+  box-shadow: var(--shadow-primary);
+  height: 90px;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.title {
+  font-weight: 400;
+  color: var(--white);
+  font-size: var(--font-4xl);
+}
+.box-user-data {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.box-user-data .username {
+  font-weight: 300;
+  color: var(--white);
+  font-size: var(--font-md);
+}
+.box-user-data .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: var(--tertiary);
+}

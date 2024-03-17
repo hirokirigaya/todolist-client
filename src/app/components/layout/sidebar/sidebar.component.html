@@ -1,0 +1,31 @@
+<aside [class]="collapsed ? 'container collapsed' : 'container'">
+  <button class="btn-aside btn-menu" (click)="collapseSidebar()">
+    <app-menu-icon />
+  </button>
+
+  <div class="box-buttons">
+    <button [class]="collapsed ? 'btn-aside btn-aside-collapsed' : 'btn-aside'">
+      <div class="btn-plus">
+        <img src="/assets/svgs/plus.svg" alt="Mais" />
+      </div>
+      <p [class]="collapsed ? 'label-button-collpsed' : 'label-button'">
+        Nova tarefa
+      </p>
+    </button>
+    <button [class]="collapsed ? 'btn-aside btn-aside-collapsed' : 'btn-aside'">
+      <app-button-toggle-theme-dark />
+      <p [class]="collapsed ? 'label-button-collpsed' : 'label-button'">
+        Trocar tema
+      </p>
+    </button>
+    <button
+      [class]="collapsed ? 'btn-aside btn-aside-collapsed' : 'btn-aside'"
+      (click)="logout()"
+    >
+      <div class="logout-icon">
+        <app-logout-icon />
+      </div>
+      <p [class]="collapsed ? 'label-button-collpsed' : 'label-button'">Sair</p>
+    </button>
+  </div>
+</aside>
